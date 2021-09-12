@@ -9,14 +9,14 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=9" };
 static const char dmenufont[]       = "monospace:size=9";
 static const char col_gray1[]       = "#282a36";
-static const char col_gray2[]       = "#44475a";
-static const char col_gray3[]       = "#f8f8f2";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#7544BE";
+static const char col_gray2[]       = "#af3a03";
+static const char col_gray3[]       = "#f2e5bc"; 
+static const char col_gray4[]       = "#3c3836";
+static const char col_cyan[]        = "#ebdbb2";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeNorm] = { col_gray3, col_gray1, col_cyan},
+	[SchemeSel]  = { col_gray4, col_cyan,  col_gray2},
 };
 
 /* tagging */
@@ -31,7 +31,7 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Brave-browser",  NULL,       NULL,       1 << 1,       0,           -1 },
 	{ "qutebrowser", 	NULL, 	NULL, 1 << 1, 	0,  -1}, 	
-	{ "st-256color",	NULL,	 NULL,   1 << 0,    0,    -1},
+	{ "st-256color",	NULL,	 NULL,   1 << 0,    1,    -1},
 	{ "Pcmanfm", NULL,  NULL, 1 << 2, 	0,   -1},
 	{ "mpv", NULL, NULL, 1 << 3, 1, -1},
 	{ "qBittorrent", NULL, NULL, 1 << 4, 0, -1},
