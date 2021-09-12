@@ -31,7 +31,7 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Brave-browser",  NULL,       NULL,       1 << 1,       0,           -1 },
 	{ "qutebrowser", 	NULL, 	NULL, 1 << 1, 	0,  -1}, 	
-	{ "st-256color",	NULL,	 NULL,   1 << 0,    1,    -1},
+	{ "st-256color",	NULL,	 NULL,   1 << 0,    0,    -1},
 	{ "Pcmanfm", NULL,  NULL, 1 << 2, 	0,   -1},
 	{ "mpv", NULL, NULL, 1 << 3, 1, -1},
 	{ "qBittorrent", NULL, NULL, 1 << 4, 0, -1},
