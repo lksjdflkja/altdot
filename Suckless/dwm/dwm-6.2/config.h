@@ -8,11 +8,11 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=9" };
 static const char dmenufont[]       = "monospace:size=9";
-static const char col_gray1[]       = "#282a36";
+static const char col_gray1[]       = "#282828";
 static const char col_gray2[]       = "#af3a03";
-static const char col_gray3[]       = "#f2e5bc"; 
-static const char col_gray4[]       = "#3c3836";
-static const char col_cyan[]        = "#ebdbb2";
+static const char col_gray3[]       = "#bdae93"; 
+static const char col_gray4[]       = "#ebdbb2";
+static const char col_cyan[]        = "#282828";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_cyan},
@@ -80,9 +80,11 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *web[]  = { "/usr/bin/brave-browser", NULL };
 static const char *lockscreen[] = {"slock", NULL};
+static const char *screenshot[] = {"screenshot", NULL};
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ 0,														XK_Print,  spawn,          {.v = screenshot}}, 
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,							XK_x,      spawn,					 {.v = lockscreen}},
