@@ -81,11 +81,13 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *web[]  = { "/usr/bin/brave-browser", NULL };
 static const char *webpri[] = { "/home/diiyamoud/.path/webpri", NULL};
 static const char *lockscreen[] = {"slock", NULL};
-static const char *screenshot[] = {"screenshot", NULL};
+static const char *screenshoter[] = {"/home/diiyamoud/.path/screenshot", NULL};
+static const char *screenshot[] = {"/home/diiyamoud/.path/eternalshot", NULL};
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ 0,														XK_Print,  spawn,          {.v = screenshot}}, 
+	{ MODKEY|ShiftMask,							XK_Print,  spawn, 				 {.v = screenshoter}},
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask, 						XK_n,			 spawn, 				 {.v = webpri }},
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
