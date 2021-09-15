@@ -2,7 +2,7 @@
 
 /* appearance */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int gappx     = 5;        /* gaps between windows */
+static const unsigned int gappx     = 7;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -40,6 +40,7 @@ static const Rule rules[] = {
   { "libreoffice-startcenter", NULL, NULL, 1 << 6, 0, -1},
 	{ "obs", NULL, NULL, 1 << 7, 0, -1},
 	{ "Tor Browser", NULL, NULL, 1 << 1, 0, -1},
+	{ "Firefox-esr", NULL, NULL, 1 << 1, 0, -1},
 	{ "Code", NULL, NULL, 1 << 8, 0, -1}
 
 
@@ -78,8 +79,8 @@ void swaptags(const Arg *arg);
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *web[]  = { "/usr/bin/brave-browser", NULL };
-static const char *webpri[] = { "/home/diiyamoud/.path/webpri", NULL};
+static const char *web[]  = { "/usr/bin/firefox", NULL };
+/*static const char *webpri[] = { "/home/diiyamoud/.path/webpri", NULL}; */
 static const char *lockscreen[] = {"slock", NULL};
 static const char *screenshoter[] = {"/home/diiyamoud/.path/screenshot", NULL};
 static const char *screenshot[] = {"/home/diiyamoud/.path/eternalshot", NULL};
@@ -89,10 +90,10 @@ static Key keys[] = {
 	{ 0,														XK_Print,  spawn,          {.v = screenshot}}, 
 	{ MODKEY|ShiftMask,							XK_Print,  spawn, 				 {.v = screenshoter}},
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY|ShiftMask, 						XK_n,			 spawn, 				 {.v = webpri }},
+/*	{ MODKEY|ShiftMask, 						XK_n,			 spawn, 				 {.v = webpri }}, */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,							XK_x,      spawn,					 {.v = lockscreen}},
-	{ MODKEY|ShiftMask, 						XK_b, 		 spawn,          {.v = web}},
+	{ MODKEY|ShiftMask, 						XK_n, 		 spawn,          {.v = web}},
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
