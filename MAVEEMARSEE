@@ -29,7 +29,7 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'gko/vim-coloresque'
+Plugin 'chrisbra/Colorizer' 
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tmhedberg/SimpylFold'
 Plugin 'morhetz/gruvbox'
