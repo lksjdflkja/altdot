@@ -8,10 +8,15 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=9" };
 static const char dmenufont[]       = "monospace:size=9";
+/* The background of tags and status area */
 static const char col_gray1[]       = "#282828";
+/* Color of windows boarders */
 static const char col_gray2[]       = "#af3a03";
+/* Foreground color of Tags and status area */
 static const char col_gray3[]       = "#bdae93"; 
+/* Color of the middle part of the bar's foreground (title name foreground) */
 static const char col_gray4[]       = "#ebdbb2";
+/* The background color of the middle part of the bar */
 static const char col_cyan[]        = "#282828";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
