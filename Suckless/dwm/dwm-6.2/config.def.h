@@ -9,15 +9,15 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=9" };
 static const char dmenufont[]       = "monospace:size=9";
 /* The background of tags and status area */
-static const char col_gray1[]       = "#282828";
+static const char col_gray1[]       = "#eee8d5";
 /* Color of windows boarders */
-static const char col_gray2[]       = "#af3a03";
+static const char col_gray2[]       = "#6c71c4";
 /* Foreground color of Tags and status area */
-static const char col_gray3[]       = "#bdae93"; 
+static const char col_gray3[]       = "#073642"; 
 /* Color of the middle part of the bar's foreground (title name foreground) */
-static const char col_gray4[]       = "#ebdbb2";
+static const char col_gray4[]       = "#073642";
 /* The background color of the middle part of the bar */
-static const char col_cyan[]        = "#282828";
+static const char col_cyan[]        = "#eee8d5";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_cyan},
@@ -34,7 +34,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Brave-browser",  NULL,       NULL,       1 << 1,       0,           -1 },
+	{ "Chromium",  NULL,       NULL,       1 << 1,       0,           -1 },
 	{ "qutebrowser", 	NULL, 	NULL, 1 << 1, 	0,  -1}, 	
 	{ "st-256color",	NULL,	 NULL,   1 << 0,    0,    -1},
 	{ "Pcmanfm", NULL,  NULL, 1 << 2, 	0,   -1},
