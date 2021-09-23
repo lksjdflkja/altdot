@@ -35,6 +35,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Chromium",  NULL,       NULL,       1 << 1,       0,           -1 },
+	{ "feh", 			NULL, 				NULL, 		1 << 3, 					0,						-1},
 	{ "qutebrowser", 	NULL, 	NULL, 1 << 1, 	0,  -1}, 	
 	{ "st-256color",	NULL,	 NULL,   1 << 0,    0,    -1},
 	{ "Pcmanfm", NULL,  NULL, 1 << 2, 	0,   -1},
@@ -84,9 +85,10 @@ void swaptags(const Arg *arg);
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
-static const char *web[]  = { "/usr/bin/firefox", NULL };
-/*static const char *webpri[] = { "/home/diiyamoud/.path/webpri", NULL}; */
+static const char *web[]  = { "/usr/bin/qutebrowser", NULL };
+static const char *webpri[] = { "/home/diiyamoud/.path/webpri", NULL}; 
 static const char *lockscreen[] = {"slock", NULL};
+static const char *qutebrowserguide[] = {"qt", NULL};
 static const char *screenshoter[] = {"/home/diiyamoud/.path/screenshot", NULL};
 static const char *screenshot[] = {"/home/diiyamoud/.path/eternalshot", NULL};
 static Key keys[] = {
@@ -95,6 +97,7 @@ static Key keys[] = {
 	{ 0,														XK_Print,  spawn,          {.v = screenshot}}, 
 	{ MODKEY|ShiftMask,							XK_Print,  spawn, 				 {.v = screenshoter}},
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY|ShiftMask, 						XK_m, 		 spawn, 				 {.v = qutebrowserguide }},
 /*	{ MODKEY|ShiftMask, 						XK_n,			 spawn, 				 {.v = webpri }}, */
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,							XK_x,      spawn,					 {.v = lockscreen}},
