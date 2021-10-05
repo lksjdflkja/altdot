@@ -6,16 +6,16 @@ static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Ubuntu Regular:size=9" };
+static const char *fonts[]          = { "San Francisco Display Regular:size=9" };
 static const char dmenufont[]       = "monospace:size=10";
 /* The background of tags and status area */
 static const char col_gray1[]       = "#1a1b26";
 /* Color of windows boarders */
-static const char col_gray2[]       = "#bb9af7";
+static const char col_gray2[]       = "#f7768e";
 /* Foreground color of Tags and status area */
-static const char col_gray3[]       = "#f7768e"; 
+static const char col_gray3[]       = "#a9b1d6"; 
 /* Color of the middle part of the bar's foreground (title name foreground) */
-static const char col_gray4[]       = "#bb9af7";
+static const char col_gray4[]       = "#7aa2f7";
 /* The background color of the middle part of the bar */
 static const char col_cyan[]        = "#1a1b26";
 static const char *colors[][3]      = {

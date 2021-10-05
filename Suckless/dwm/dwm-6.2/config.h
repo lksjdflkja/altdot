@@ -6,18 +6,18 @@ static const unsigned int gappx     = 5;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=9" };
-static const char dmenufont[]       = "monospace:size=9";
+static const char *fonts[]          = { "Ubuntu Regular:size=9" };
+static const char dmenufont[]       = "monospace:size=10";
 /* The background of tags and status area */
-static const char col_gray1[]       = "#eee8d5";
+static const char col_gray1[]       = "#1a1b26";
 /* Color of windows boarders */
-static const char col_gray2[]       = "#6c71c4";
+static const char col_gray2[]       = "#bb9af7";
 /* Foreground color of Tags and status area */
-static const char col_gray3[]       = "#073642"; 
+static const char col_gray3[]       = "#f7768e"; 
 /* Color of the middle part of the bar's foreground (title name foreground) */
-static const char col_gray4[]       = "#073642";
+static const char col_gray4[]       = "#bb9af7";
 /* The background color of the middle part of the bar */
-static const char col_cyan[]        = "#eee8d5";
+static const char col_cyan[]        = "#1a1b26";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_cyan},
@@ -25,7 +25,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -34,8 +34,8 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "Galculator", NULL, NULL, 0, 1, -1}, 
 	{ "Chromium",  NULL,       NULL,       1 << 1,       0,           -1 },
-	{ "feh", 			NULL, 				NULL, 		1 << 3, 					0,						-1},
 	{ "qutebrowser", 	NULL, 	NULL, 1 << 1, 	0,  -1}, 	
 	{ "st-256color",	NULL,	 NULL,   1 << 0,    0,    -1},
 	{ "Pcmanfm", NULL,  NULL, 1 << 2, 	0,   -1},
@@ -46,8 +46,8 @@ static const Rule rules[] = {
   { "libreoffice-startcenter", NULL, NULL, 1 << 6, 0, -1},
 	{ "obs", NULL, NULL, 1 << 7, 0, -1},
 	{ "Tor Browser", NULL, NULL, 1 << 1, 0, -1},
-	{ "Firefox-esr", NULL, NULL, 1 << 1, 0, -1},
-	{ "Code", NULL, NULL, 1 << 8, 0, -1}
+	{ "firefox", NULL, NULL, 1 << 1, 0, -1},
+	{ "Atom", NULL, NULL, 1 << 8, 0, -1}
 
 
 
@@ -65,6 +65,8 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
+	{ "|M|",      centeredmaster },
+	{ ">M>",      centeredfloatingmaster },
 };
 
 void swaptags(const Arg *arg);
@@ -86,19 +88,19 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *web[]  = { "/usr/bin/qutebrowser", NULL };
-static const char *webpri[] = { "/home/diiyamoud/.path/webpri", NULL}; 
+static const char *webpri[] = { "firefox", NULL}; 
+static const char *webchromium[] = { "chromium", NULL}; 
 static const char *lockscreen[] = {"slock", NULL};
-static const char *qutebrowserguide[] = {"qt", NULL};
 static const char *screenshoter[] = {"/home/diiyamoud/.path/screenshot", NULL};
 static const char *screenshot[] = {"/home/diiyamoud/.path/eternalshot", NULL};
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ 0,														XK_Print,  spawn,          {.v = screenshot}}, 
+	{ MODKEY|ShiftMask, 						XK_m, 		 spawn,          {.v = webchromium}},
 	{ MODKEY|ShiftMask,							XK_Print,  spawn, 				 {.v = screenshoter}},
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY|ShiftMask, 						XK_m, 		 spawn, 				 {.v = qutebrowserguide }},
-/*	{ MODKEY|ShiftMask, 						XK_n,			 spawn, 				 {.v = webpri }}, */
+	{ MODKEY|ShiftMask, 						XK_b,			 spawn, 				 {.v = webpri }}, 
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY|ShiftMask,							XK_x,      spawn,					 {.v = lockscreen}},
 	{ MODKEY|ShiftMask, 						XK_n, 		 spawn,          {.v = web}},
@@ -114,6 +116,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[4]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
