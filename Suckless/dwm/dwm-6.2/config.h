@@ -13,7 +13,7 @@ static const char col_gray1[]       = "#1a1b26";
 /* Color of windows boarders */
 static const char col_gray2[]       = "#bb9af7";
 /* Foreground color of Tags and status area */
-static const char col_gray3[]       = "#f7768e"; 
+static const char col_gray3[]       = "#c0caf5"; 
 /* Color of the middle part of the bar's foreground (title name foreground) */
 static const char col_gray4[]       = "#bb9af7";
 /* The background color of the middle part of the bar */
@@ -35,6 +35,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Galculator", NULL, NULL, 0, 1, -1}, 
+	{ "URxvt", NULL, NULL, 0, 1, -1}, 
 	{ "Chromium",  NULL,       NULL,       1 << 1,       0,           -1 },
 	{ "qutebrowser", 	NULL, 	NULL, 1 << 1, 	0,  -1}, 	
 	{ "st-256color",	NULL,	 NULL,   1 << 0,    0,    -1},
@@ -90,14 +91,18 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *web[]  = { "/usr/bin/qutebrowser", NULL };
 static const char *webpri[] = { "firefox", NULL}; 
 static const char *webchromium[] = { "chromium", NULL}; 
+static const char *telegram[] = {"telegram-desktop", NULL};
 static const char *lockscreen[] = {"slock", NULL};
+static const char *urxvt[] = {"urxvt", NULL};
 static const char *screenshoter[] = {"/home/diiyamoud/.path/screenshot", NULL};
 static const char *screenshot[] = {"/home/diiyamoud/.path/eternalshot", NULL};
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+	{ MODKEY|ShiftMask,							XK_t, 		 spawn,          {.v = telegram} },
 	{ 0,														XK_Print,  spawn,          {.v = screenshot}}, 
 	{ MODKEY|ShiftMask, 						XK_m, 		 spawn,          {.v = webchromium}},
+	{ MODKEY|ShiftMask, 						XK_l, 		 spawn,          {.v = urxvt}},
 	{ MODKEY|ShiftMask,							XK_Print,  spawn, 				 {.v = screenshoter}},
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask, 						XK_b,			 spawn, 				 {.v = webpri }}, 
