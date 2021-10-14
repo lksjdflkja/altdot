@@ -9,15 +9,15 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "monospace:size=9" };
 static const char dmenufont[]       = "monospace:size=9";
 /* The background of tags and status area */
-static const char col_gray1[]       = "#282a36";
+static const char col_gray1[]       = "#282828";
 /* Color of windows boarders */
-static const char col_gray2[]       = "#ffb86c";
+static const char col_gray2[]       = "#d65d0e";
 /* Foreground color of Tags and status area */
-static const char col_gray3[]       = "#ff79c6"; 
+static const char col_gray3[]       = "#ebdbb2"; 
 /* Color of the middle part of the bar's foreground (title name foreground) */
-static const char col_gray4[]       = "#ff79c6";
+static const char col_gray4[]       = "#fbf1c7";
 /* The background color of the middle part of the bar */
-static const char col_cyan[]        = "#282a36";
+static const char col_cyan[]        = "#282828";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_cyan},
@@ -25,7 +25,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "", "", "", "", "", "", "", "", "" };
+static const char *tags[] = { "term", "www", "file", "media", "dwnld", "tel", "offce", "obs", "ed" };
 
 static const Rule rules[] = {
 	/* xprop(1):
